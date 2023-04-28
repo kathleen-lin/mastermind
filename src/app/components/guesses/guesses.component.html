@@ -1,0 +1,73 @@
+<h1> Guesses</h1>
+
+<form [formGroup]="guessForm" (submit)="processGuess()">
+    <div formArrayName="guesses">
+    <div *ngFor="let guess of guessArray.controls; let i = index" [formGroupName] = "i">
+        <table>
+    <tr>
+        <td>
+            <select formControlName="firstColor">
+            <option value="R" class="red">1</option>
+            <option value="G" class="green">2</option>
+            <option value="B" class="blue">3</option>
+            <option value="Y" class="yellow">4</option>
+            <option value="P" class="purple">5</option>
+            <option value="O" class="orange">6</option>
+        
+        </select>
+    </td>
+ 
+    <td>
+        <select formControlName="secondColor">
+        <option value="R" class="red">1</option>
+        <option value="G" class="green">2</option>
+        <option value="B" class="blue">3</option>
+        <option value="Y" class="yellow">4</option>
+        <option value="P" class="purple">5</option>
+        <option value="O" class="orange">6</option>
+    
+    </select>
+</td>
+<td>
+    <select formControlName="thirdColor">
+    <option value="R" class="red">1</option>
+    <option value="G" class="green">2</option>
+    <option value="B" class="blue">3</option>
+    <option value="Y" class="yellow">4</option>
+    <option value="P" class="purple">5</option>
+    <option value="O" class="orange">6</option>
+
+</select>
+</td>
+<td>
+    <select formControlName="fourthColor">
+    <option value="R" class="red">1</option>
+    <option value="G" class="green">2</option>
+    <option value="B" class="blue">3</option>
+    <option value="Y" class="yellow">4</option>
+    <option value="P" class="purple">5</option>
+    <option value="O" class="orange">6</option>
+
+</select>
+</td>
+
+<button type="submit">Check answer</button>
+
+
+    </tr>
+</table>
+</div>
+</div>
+</form>
+
+<table>
+    <thead>
+        <td>Try</td>
+        <td>Hint</td>
+    </thead>
+    <tr *ngFor="let hint of hints, let i = index">
+        <td>{{i + 1}}.</td>
+        <td>{{ hint }}</td>
+    </tr>
+    
+</table>

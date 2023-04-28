@@ -1,0 +1,67 @@
+<h1>Input guess</h1>
+
+
+<form [formGroup]="answerForm" (ngSubmit)="saveAns()" *ngIf="hidden == false">
+    <tr>
+        <td>
+            <select formControlName="firstColor">
+            <option value="R" class="red">1</option>
+            <option value="G" class="green">2</option>
+            <option value="B" class="blue">3</option>
+            <option value="Y" class="yellow">4</option>
+            <option value="P" class="purple">5</option>
+            <option value="O" class="orange">6</option>
+        
+        </select>
+    </td>
+ 
+    <td>
+        <select formControlName="secondColor">
+        <option value="R" class="red">1</option>
+        <option value="G" class="green">2</option>
+        <option value="B" class="blue">3</option>
+        <option value="Y" class="yellow">4</option>
+        <option value="P" class="purple">5</option>
+        <option value="O" class="orange">6</option>
+    
+    </select>
+</td>
+<td>
+    <select formControlName="thirdColor">
+    <option value="R" class="red">1</option>
+    <option value="G" class="green">2</option>
+    <option value="B" class="blue">3</option>
+    <option value="Y" class="yellow">4</option>
+    <option value="P" class="purple">5</option>
+    <option value="O" class="orange">6</option>
+
+</select>
+</td>
+<td>
+    <select formControlName="fourthColor">
+    <option value="R" class="red">1</option>
+    <option value="G" class="green">2</option>
+    <option value="B" class="blue">3</option>
+    <option value="Y" class="yellow">4</option>
+    <option value="P" class="purple">5</option>
+    <option value="O" class="orange">6</option>
+
+</select>
+
+<button type="submit">Save answer</button>
+</td>
+    </tr>
+</form>
+
+<div *ngIf="answerForm.valid && hidden == false"> 
+    
+    {{ answerRow[0] }}, {{ answerRow[1] }}, {{ answerRow[2] }}, {{ answerRow[3] }}
+
+    <button (click)="hideAns()"> Hide answer</button>    
+
+</div>
+
+<div *ngIf="hidden == true">
+    <p>answer hidden</p>
+    <button (click)="unhideAns()"> unhide</button>
+</div>
